@@ -1,0 +1,15 @@
+---
+- name: Uninstall Nginx from the servers
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Stop nginx service
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Disable nginx service
+      service:
+        name: nginx
+        enabled: no
